@@ -1,10 +1,16 @@
+var bottomOrTop = 'bottom';
+var rightOrLeft = 'right';
+
+var bottomOrTopNum = '50%';
+var rightOrLeftNum = '5%';
+
 document.querySelector('#divTopo').innerHTML += `
   <div
     id="inpts"
     style="
       position: fixed;
-      bottom: 50%;
-      right: 5%;
+      ${bottomOrTop}: ${bottomOrTopNum};
+      ${rightOrLeft}: ${rightOrLeftNum};
       z-index: 999;
       background-color: transparent;
     "

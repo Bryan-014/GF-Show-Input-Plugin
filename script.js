@@ -4,27 +4,7 @@ var rightOrLeft = 'right';
 var bottomOrTopNum = '50%';
 var rightOrLeftNum = '5%';
 
-document.querySelector('#divTopo').innerHTML += `
-  <div
-    id="inpts"
-    style="
-      position: fixed;
-      ${bottomOrTop}: ${bottomOrTopNum};
-      ${rightOrLeft}: ${rightOrLeftNum};
-      z-index: 999;
-      background-color: transparent;
-    "
-  >
-    <div style="display: flex; gap: 6px">
-      <div id="inptA" style="color: #fff; width: 35px; height: 35px; text-align: center; border: 1px solid #fff;">A</div>
-      <div id="inptSS" style="color: #fff; width: 35px; height: 35px; text-align: center; border: 1px solid #fff;">S</div>
-      <div id="inptJ" style="color: #fff; width: 35px; height: 35px; text-align: center; border: 1px solid #fff;">J</div>
-      <div id="inptK" style="color: #fff; width: 35px; height: 35px; text-align: center; border: 1px solid #fff;">K</div>
-      <div id="inptL" style="color: #fff; width: 35px; height: 35px; text-align: center; border: 1px solid #fff;">L</div>
-    </div>
-    <div id="inptESP" style="color: #fff; width: 70px; height: 35px; text-align: center; border: 1px solid #fff; margin-top: 6px; margin-left: 70px;">Espaço</div>
-  </div>
-`;
+loadInputs();
 
 document.addEventListener('keydown', e => {
   switch (e.keyCode) {
@@ -75,3 +55,32 @@ document.addEventListener('keyup', e => {
       break;
   }
 });
+
+function loadInputs() {
+  document.querySelector('#divTopo').innerHTML += `
+    <div
+      id="inpts"
+      style="
+        position: fixed;
+        ${bottomOrTop}: ${bottomOrTopNum};
+        ${rightOrLeft}: ${rightOrLeftNum};
+        z-index: 999;
+        background-color: transparent;
+      "
+    >
+      <div style="display: flex; gap: 6px">
+        <div id="inptA" style="color: #fff; width: 35px; height: 35px; text-align: center; border: 1px solid #fff;">A</div>
+        <div id="inptSS" style="color: #fff; width: 35px; height: 35px; text-align: center; border: 1px solid #fff;">S</div>
+        <div id="inptJ" style="color: #fff; width: 35px; height: 35px; text-align: center; border: 1px solid #fff;">J</div>
+        <div id="inptK" style="color: #fff; width: 35px; height: 35px; text-align: center; border: 1px solid #fff;">K</div>
+        <div id="inptL" style="color: #fff; width: 35px; height: 35px; text-align: center; border: 1px solid #fff;">L</div>
+      </div>
+      <div id="inptESP" style="color: #fff; width: 70px; height: 35px; text-align: center; border: 1px solid #fff; margin-top: 6px; margin-left: 70px;">Espaço</div>
+      <span class="gfBts" style="position: fixed; ${bottomOrTop == 'bottom' ? 'top' : 'botton' }: 15px; ${rightOrLeft == 'right' ? 'left' : 'right' }: 15px;" onclick="removeInpt()">Remover Inputs</span>
+    </div>
+  `;
+}
+
+function removeInpt() {
+  document.querySelector('#inpts').innerHTML = '';
+}
